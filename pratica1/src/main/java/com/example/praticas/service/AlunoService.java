@@ -21,4 +21,12 @@ public class AlunoService {
         return media;
     }
 
+    public String msg(float media) {
+        if (media >= 9) {
+            return "Parabéns, passou com mádia maior do que 9!";
+        } else {
+            return "Passou!";
+        }
+    }
+
 }

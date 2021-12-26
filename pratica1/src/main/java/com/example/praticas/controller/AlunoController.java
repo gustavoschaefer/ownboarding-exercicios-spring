@@ -45,13 +45,7 @@ public class AlunoController {
     public ResponseEntity<Diploma> getDiploma(@RequestBody AlunoDto alunoDto) {
         Aluno aluno = AlunoDto.toAluno(alunoDto);
         float media = alunoService.media(aluno);
-        String msg;
-        if (media >= 9) {
-            msg = "Parabéns, passou com mádia maior do que 9!";
-        } else {
-            msg = "Passou!";
-        }
-        Diploma diploma = Diploma.builder().nome(aluno.getNome()).msg(msg).media(media).build();
+        Diploma diploma = Diploma.builder().nome(aluno.getNome()).msg(alunoService.msg(media)).media(media).build();
         return ResponseEntity.ok(diploma);
     }
 
