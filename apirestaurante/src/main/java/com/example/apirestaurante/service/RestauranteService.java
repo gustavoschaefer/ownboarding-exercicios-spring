@@ -17,7 +17,11 @@ public class RestauranteService {
 
     public Restaurante fecharMesa(long idMesa) {
         Mesa mesa = mesaService.buscaMesa(idMesa);
-        restaurante.setCaixa(restaurante.getCaixa().add(mesa.getValorTotalConsumido()));
+        try {
+            restaurante.setCaixa(restaurante.getCaixa().add(mesa.getValorTotalConsumido()));
+        } catch (NullPointerException e) {
+            return restaurante;
+        }
         mesaService.mesaList.removeIf(m -> m.getId() == idMesa);
         return restaurante;
     }
