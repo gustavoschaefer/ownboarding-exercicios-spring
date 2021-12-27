@@ -8,10 +8,12 @@ import java.util.List;
 
 @Service
 public class PedidoService {
+
     public BigDecimal calculaValorTotal(List<Prato> pratos) {
         BigDecimal valorTotal = BigDecimal.valueOf(0);
         for (Prato p : pratos) {
-            valorTotal.add(p.getPreco());
+            BigDecimal valor = p.getPreco().multiply(BigDecimal.valueOf(p.getQuantidade()));
+            valorTotal = valorTotal.add(valor);
         }
         return valorTotal;
     }
