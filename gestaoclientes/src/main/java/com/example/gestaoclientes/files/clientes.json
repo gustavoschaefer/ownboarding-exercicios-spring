@@ -1,0 +1,100 @@
+[ {
+  "id" : 1,
+  "nome" : "Cliente1",
+  "cpf" : "123456789",
+  "email" : "email@dominio.com",
+  "telefone" : "123456789",
+  "pedidoList" : [ {
+    "id" : 1,
+    "produtoList" : [ {
+      "id" : 1,
+      "descricao" : "Arroz",
+      "cor" : "Branco",
+      "quantidade" : 2,
+      "preco" : 15
+    }, {
+      "id" : 2,
+      "descricao" : "Feijão",
+      "cor" : "Preto",
+      "quantidade" : 4,
+      "preco" : 25
+    } ],
+    "valorTotal" : 130
+  }, {
+    "id" : 2,
+    "produtoList" : [ {
+      "id" : 3,
+      "descricao" : "Sushi",
+      "cor" : "Verde",
+      "quantidade" : 8,
+      "preco" : 50
+    } ],
+    "valorTotal" : 400
+  } ]
+}, {
+  "id" : 2,
+  "nome" : "Cliente2",
+  "cpf" : "123456789",
+  "email" : "email@dominio.com",
+  "telefone" : "123456789",
+  "pedidoList" : [ {
+    "id" : 3,
+    "produtoList" : [ {
+      "id" : 4,
+      "descricao" : "Arroz",
+      "cor" : "Branco",
+      "quantidade" : 2,
+      "preco" : 15
+    }, {
+      "id" : 5,
+      "descricao" : "Feijão",
+      "cor" : "Preto",
+      "quantidade" : 4,
+      "preco" : 25
+    } ],
+    "valorTotal" : 130
+  }, {
+    "id" : 4,
+    "produtoList" : [ {
+      "id" : 6,
+      "descricao" : "Sushi",
+      "cor" : "Verde",
+      "quantidade" : 8,
+      "preco" : 50
+    } ],
+    "valorTotal" : 400
+  } ]
+}, {
+  "id" : 3,
+  "nome" : "Cliente3",
+  "cpf" : "123456789",
+  "email" : "email@dominio.com",
+  "telefone" : "123456789",
+  "pedidoList" : [ {
+    "id" : 15,
+    "produtoList" : [ {
+      "id" : 22,
+      "descricao" : "Arroz",
+      "cor" : "Branco",
+      "quantidade" : 2,
+      "preco" : 15
+    }, {
+      "id" : 23,
+      "descricao" : "Feijão",
+      "cor" : "Preto",
+      "quantidade" : 4,
+      "preco" : 25
+    } ],
+    "valorTotal" : 130
+  }, {
+    "id" : 16,
+    "produtoList" : [ {
+      "id" : 24,
+      "descricao" : "Sushi",
+      "cor" : "Verde",
+      "quantidade" : 8,
+      "preco" : 50
+    } ],
+    "valorTotal" : 400
+  } ]
+} ]

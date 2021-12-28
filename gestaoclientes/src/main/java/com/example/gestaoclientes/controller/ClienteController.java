@@ -24,8 +24,8 @@ public class ClienteController {
         return clienteService.listar();
     }
 
-    @GetMapping("{nome}")
-    public Cliente buscar(@PathVariable String nome) {
-        return clienteService.buscar(nome);
+    @GetMapping("{id}")
+    public Cliente buscar(@PathVariable long id) {
+        return clienteService.buscar(id);
     }
 }
