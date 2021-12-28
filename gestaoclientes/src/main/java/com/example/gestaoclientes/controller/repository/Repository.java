@@ -7,5 +7,5 @@ public interface Repository <T,U>{
 
     void save(T t) throws IOException;
     List<T> list() throws IOException;
-    T get(U id) throws IOException;
+    List<T> get(U id) throws IOException;
 }

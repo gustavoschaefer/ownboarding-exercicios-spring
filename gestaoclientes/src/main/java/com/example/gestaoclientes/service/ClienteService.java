@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ClienteService {
@@ -40,7 +41,7 @@ public class ClienteService {
         return null;
     }
 
-    public Cliente buscar(long id) {
+    public List<Cliente> buscar(Map<String,String> param) {
 //        for (Cliente cliente : clienteList) {
 //            if (cliente.getNome().equals(nome)) {
 //                return cliente;
@@ -48,7 +49,7 @@ public class ClienteService {
 //        }
 //        return null;
         try {
-            return clienteRepository.get(id);
+            return clienteRepository.get(param);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/cliente")
@@ -24,8 +25,14 @@ public class ClienteController {
         return clienteService.listar();
     }
 
-    @GetMapping("{id}")
-    public Cliente buscar(@PathVariable long id) {
-        return clienteService.buscar(id);
+    @GetMapping("/buscar")
+    public List<Cliente> buscar(@RequestParam Map<String,String> param) {
+        return clienteService.buscar(param);
     }
+
+//    @GetMapping("/buscar")
+//    public Cliente buscar(@RequestParam Map<String,String> param) {
+//        return clienteService.buscar(param);
+//    }
+
 }

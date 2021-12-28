@@ -11,9 +11,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
-public class ClienteRepository implements Repository<Cliente, Long> {
+public class ClienteRepository implements Repository<Cliente, Map<String,String>> {
 
     private List<Cliente> clientes = new ArrayList<>();
     private ObjectMapper objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
@@ -23,9 +24,7 @@ public class ClienteRepository implements Repository<Cliente, Long> {
     public void save(Cliente cliente) throws IOException {
         try {
             clientes = objectMapper.readValue(new File(PATH), new TypeReference<ArrayList<Cliente>>(){});
-        } catch (MismatchedInputException e) {
-            clientes = new ArrayList<>();
-        }
+        } catch (MismatchedInputException e) {}
         cliente.setId((long)clientes.size() + 1);
         clientes.add(cliente);
         objectMapper.writeValue(new File(PATH), clientes);
@@ -33,18 +32,30 @@ public class ClienteRepository implements Repository<Cliente, Long> {
 
     @Override
     public List<Cliente> list() throws IOException {
-        File file = new File(PATH);
-        FileInputStream fileInputStream = new FileInputStream(file);
-        clientes = Arrays.asList(objectMapper.readValue(fileInputStream, Cliente[].class));
+//        File file = new File(PATH);
+//        FileInputStream fileInputStream = new FileInputStream(file);
+//        clientes = Arrays.asList(objectMapper.readValue(fileInputStream, Cliente[].class));
+        try {
+            clientes = objectMapper.readValue(new File(PATH), new TypeReference<ArrayList<Cliente>>(){});
+        } catch (MismatchedInputException e) {}
         return clientes;
     }
 
     @Override
-    public Cliente get(Long id) throws IOException {
-        File file = new File(PATH);
-        FileInputStream fileInputStream = new FileInputStream(file);
-        clientes = Arrays.asList(objectMapper.readValue(fileInputStream, Cliente[].class));
-        Optional<Cliente> optionalCliente = clientes.stream().filter(c -> c.getId()==id).findAny();
-        return optionalCliente.orElse(null);
+    public List<Cliente> get(Map<String,String> param) throws IOException {
+        try {
+            clientes = objectMapper.readValue(new File(PATH), new TypeReference<ArrayList<Cliente>>(){});
+        } catch (MismatchedInputException e) {}
+
+        for (Map.Entry<String, String> entry : param.entrySet()) {
+            if (entry.getKey().equals("id")) {
+                clientes = clientes.stream().filter(c -> c.getId()==Long.valueOf(entry.getValue())).collect(Collectors.toList());
+            }
+            if (entry.getKey().equals("nome")) {
+                clientes = clientes.stream().filter(c -> c.getNome().equals(String.valueOf(entry.getValue()))).collect(Collectors.toList());
+            }
+        }
+
+        return clientes;
     }
 }
