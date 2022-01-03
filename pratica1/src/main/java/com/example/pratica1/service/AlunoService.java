@@ -1,21 +1,30 @@
-package com.example.praticas.service;
+package com.example.pratica1.service;
 
-import com.example.praticas.entity.Aluno;
+import com.example.pratica1.entity.Aluno;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class AlunoService {
-    public void salvar(Aluno aluno) {
 
+    private static List<Aluno> alunoList = new ArrayList<>();
+
+    public void salvar(Aluno aluno) {
+        alunoList.add(aluno);
+    }
+
+    public List<Aluno> buscar() {
+        return alunoList;
     }
 
     public float media(Aluno aluno) {
-        Map<String,Integer> notas = aluno.getNotas();
+        Map<String,String> notas = aluno.getNotas();
         float media = 0;
-        for (Integer nota: notas.values()) {
-            media += nota;
+        for (String nota: notas.values()) {
+            media += Integer.parseInt(nota);
         }
         media = media / notas.size();
         return media;

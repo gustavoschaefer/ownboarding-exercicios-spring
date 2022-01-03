@@ -1,7 +1,7 @@
-package com.example.praticas.controller;
+package com.example.pratica1.controller;
 
-import com.example.praticas.entity.Casa;
-import com.example.praticas.entity.Comodo;
+import com.example.pratica1.entity.Casa;
+import com.example.pratica1.entity.Comodo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

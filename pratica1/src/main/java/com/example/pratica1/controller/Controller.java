@@ -1,4 +1,4 @@
-package com.example.praticas.controller;
+package com.example.pratica1.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

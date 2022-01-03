@@ -1,4 +1,4 @@
-package com.example.praticas.entity;
+package com.example.pratica1.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

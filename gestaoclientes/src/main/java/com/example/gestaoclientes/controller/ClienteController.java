@@ -27,6 +27,7 @@ public class ClienteController {
 
     @GetMapping("/buscar")
     public List<Cliente> buscar(@RequestParam Map<String,String> param) {
+
         return clienteService.buscar(param);
     }
 
